@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Question from './components/Questions'
+export default function App(){
+    const [questionsState, setQuestionsState] = React.useState([])
+    
+    //"https://opentdb.com/api.php?amount=5"
+    async function getQuestions() {
+        const api = "https://opentdb.com/api.php?amount=5"
+        const result = await fetch(api)
+        const getResult = await result.json()
+        console.log(getResult.results)
+        //store data
+        return getResult.results
+        
+        
+    }
+    React.useEffect(async ()=>{
+        getQuestions().then(data=>setQuestionsState(data))
+        console.log("rendered")
+    },[])
+    
+    const questionElement = questionsState.map(quest=>{
+         return <Question
+            type={quest.question}
+        />
+    })
+   
+  
+    return(
+        <div className="container">
+            {questionElement}
+        </div> 
+    )
+    
 }
-
-export default App;
