@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500;700&display=swap');
+body{ margin: 0;
+    box-sizing: border-box;
+    background-color: #F5F7FB;
+    font-family: 'Karla', sans-serif;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.question{
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    line-height: 30px;
+}
+
+.answer{
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 19px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
+.question{
+    border-top: 0.79px solid #DBDEF0;
+}
+.question:first-child{
+    border-top:none;
+}
+
+@media (min-width: 600px) {
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container{
+        min-width: 600px;
+        max-width: 1000px;
+       
+        
+    }
+
+    .answer{
+        display:inline-block;
+        padding: 10px 32.5px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .question{
+        font-size: 20px;
+        font-weight: 700;
+        padding-top: 20px;
+        width: 80%;
+    }
+    
+  }
